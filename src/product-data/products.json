@@ -1,0 +1,57 @@
+[
+    {
+      "productTitle": "FreshPaws Pet Shampoo",
+      "productImages": [
+        "https://example.com/images/freshpaws1.jpg",
+        "https://example.com/images/freshpaws2.jpg"
+      ],
+      "rewardPoints": 50,
+      "startPrice": 9.99,
+      "endPrice": 19.99,
+      "sizes": [
+        { "size": "250ml", "price": 9.99 },
+        { "size": "500ml", "price": 14.99 },
+        { "size": "1L", "price": 19.99 }
+      ],
+      "shortDesc": "A gentle, organic shampoo for your pets that keeps their fur soft and clean.",
+      "available": true,
+      "skuCode": "PETSHMP-001"
+    },
+    {
+      "productTitle": "EcoWash Laundry Powder",
+      "productImages": [
+        "https://example.com/images/ecowash1.jpg",
+        "https://example.com/images/ecowash2.jpg"
+      ],
+      "rewardPoints": 30,
+      "startPrice": 5.99,
+      "endPrice": 15.99,
+      "sizes": [
+        { "size": "500g", "price": 5.99 },
+        { "size": "1kg", "price": 9.99 },
+        { "size": "2kg", "price": 15.99 }
+      ],
+      "shortDesc": "A powerful yet eco-friendly laundry powder for fresh and clean clothes.",
+      "available": true,
+      "skuCode": "LNDPOW-002"
+    },
+    {
+      "productTitle": "Sparkle Dish Washing Powder",
+      "productImages": [
+        "https://example.com/images/sparkle1.jpg",
+        "https://example.com/images/sparkle2.jpg"
+      ],
+      "rewardPoints": 40,
+      "startPrice": 4.99,
+      "endPrice": 12.99,
+      "sizes": [
+        { "size": "500g", "price": 4.99 },
+        { "size": "1kg", "price": 8.99 },
+        { "size": "2kg", "price": 12.99 }
+      ],
+      "shortDesc": "A grease-fighting dishwashing powder for sparkling clean dishes.",
+      "available": false,
+      "skuCode": "DISHPOW-003"
+    }
+  ]
+  
