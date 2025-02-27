@@ -25,7 +25,7 @@ const menuItems = [
     title: "Shop",
     hasDropdown: true,
     links: [
-      { name: "Laundry Powder", href: "/" },
+      { name: "Laundry Powder", href: "/products/freshpaws-pet-shampoo" },
       { name: "Pet Shampoo", href: "/" },
       { name: "Dish Washing Powder", href: "/" },
     ],
@@ -74,6 +74,9 @@ export default function Header() {
 
   return (
     <header className="flex justify-between items-center px-8 py-4 bg-[#8ec298]">
+      <div className="container flex justify-between items-center mx-auto">
+
+   
       <div className="flex items-center flex-row align-middle w-sm space-x-2">
         <Link href={"/"}><Image
           src={"/header-assets/logo.png"}
@@ -167,6 +170,7 @@ export default function Header() {
         <IoSearchOutline className="text-white text-2xl cursor-pointer hover:text-white/70"/>
         <RxAvatar className="text-white text-2xl cursor-pointer hover:text-white/70" />
         <IoMdHeartEmpty className="text-white text-2xl cursor-pointer hover:text-white/70"/>
+      </div>
       </div>
     </header>
   );

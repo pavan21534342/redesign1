@@ -1,57 +1,146 @@
 [
-    {
-      "productTitle": "FreshPaws Pet Shampoo",
-      "productImages": [
-        "https://example.com/images/freshpaws1.jpg",
-        "https://example.com/images/freshpaws2.jpg"
-      ],
-      "rewardPoints": 50,
-      "startPrice": 9.99,
-      "endPrice": 19.99,
-      "sizes": [
-        { "size": "250ml", "price": 9.99 },
-        { "size": "500ml", "price": 14.99 },
-        { "size": "1L", "price": 19.99 }
-      ],
-      "shortDesc": "A gentle, organic shampoo for your pets that keeps their fur soft and clean.",
-      "available": true,
-      "skuCode": "PETSHMP-001"
-    },
-    {
-      "productTitle": "EcoWash Laundry Powder",
-      "productImages": [
-        "https://example.com/images/ecowash1.jpg",
-        "https://example.com/images/ecowash2.jpg"
-      ],
-      "rewardPoints": 30,
-      "startPrice": 5.99,
-      "endPrice": 15.99,
-      "sizes": [
-        { "size": "500g", "price": 5.99 },
-        { "size": "1kg", "price": 9.99 },
-        { "size": "2kg", "price": 15.99 }
-      ],
-      "shortDesc": "A powerful yet eco-friendly laundry powder for fresh and clean clothes.",
-      "available": true,
-      "skuCode": "LNDPOW-002"
-    },
-    {
-      "productTitle": "Sparkle Dish Washing Powder",
-      "productImages": [
-        "https://example.com/images/sparkle1.jpg",
-        "https://example.com/images/sparkle2.jpg"
-      ],
-      "rewardPoints": 40,
-      "startPrice": 4.99,
-      "endPrice": 12.99,
-      "sizes": [
-        { "size": "500g", "price": 4.99 },
-        { "size": "1kg", "price": 8.99 },
-        { "size": "2kg", "price": 12.99 }
-      ],
-      "shortDesc": "A grease-fighting dishwashing powder for sparkling clean dishes.",
-      "available": false,
-      "skuCode": "DISHPOW-003"
-    }
-  ]
-  
+  {
+    "productTitle": "FreshPaws Pet Shampoo",
+    "rewardPoints": 50,
+    "startPrice": 9.99,
+    "endPrice": 19.99,
+    "sizes": [
+      {
+        "size": "250ml",
+        "price": 9.99,
+        "images": [
+          "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/5/4/544n5_euca_smell_expel_neutraliser_deodoriser_disinfectant_cleaner_herbal_5lt_lo_res_1.jpg",
+          "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/1/2/12lt_smell_expell_herbal_png-min.png"
+        ]
+      },
+      {
+        "size": "500ml",
+        "price": 14.99,
+        "images": [
+          "https://www.eucaonline.com.au/media/catalog/product/cache/8bd574bd67dbb87c1ce1a1174e67353e/g/r/groupshot_shampoo_jpg.jpg",
+          "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/7/2/728sp_forever_use_500ml_euca_trigger_spray_bottle_lo_res_1.jpg"
+        ]
+      },
+      {
+        "size": "1L",
+        "price": 19.99,
+        "images": [
+          "https://example.com/images/freshpaws_1L_1.jpg",
+          "https://example.com/images/freshpaws_1L_2.jpg"
+        ]
+      }
+    ],
+    "shortDesc": "A gentle, organic shampoo for your pets that keeps their fur soft and clean.",
+    "available": true,
+    "skuCode": "PETSHMP-001",
+    "slug": "freshpaws-pet-shampoo"
+  },
+  {
+    "productTitle": "PawsCare Flea Treatment",
+    "rewardPoints": 75,
+    "startPrice": 12.99,
+    "endPrice": 24.99,
+    "sizes": [
+      {
+        "size": "150ml",
+        "price": 12.99,
+        "images": [
+          "https://example.com/images/pawscare_150ml_1.jpg",
+          "https://example.com/images/pawscare_150ml_2.jpg"
+        ]
+      },
+      {
+        "size": "300ml",
+        "price": 18.99,
+        "images": [
+          "https://example.com/images/pawscare_300ml_1.jpg",
+          "https://example.com/images/pawscare_300ml_2.jpg"
+        ]
+      },
+      {
+        "size": "500ml",
+        "price": 24.99,
+        "images": [
+          "https://example.com/images/pawscare_500ml_1.jpg",
+          "https://example.com/images/pawscare_500ml_2.jpg"
+        ]
+      }
+    ],
+    "shortDesc": "An effective flea treatment solution to keep your pet itch-free.",
+    "available": true,
+    "skuCode": "FLEATRT-002",
+    "slug": "pawscare-flea-treatment"
+  },
+  {
+    "productTitle": "SoftPaws Conditioner",
+    "rewardPoints": 60,
+    "startPrice": 10.99,
+    "endPrice": 21.99,
+    "sizes": [
+      {
+        "size": "200ml",
+        "price": 10.99,
+        "images": [
+          "https://example.com/images/softpaws_200ml_1.jpg",
+          "https://example.com/images/softpaws_200ml_2.jpg"
+        ]
+      },
+      {
+        "size": "400ml",
+        "price": 16.99,
+        "images": [
+          "https://example.com/images/softpaws_400ml_1.jpg",
+          "https://example.com/images/softpaws_400ml_2.jpg"
+        ]
+      },
+      {
+        "size": "750ml",
+        "price": 21.99,
+        "images": [
+          "https://example.com/images/softpaws_750ml_1.jpg",
+          "https://example.com/images/softpaws_750ml_2.jpg"
+        ]
+      }
+    ],
+    "shortDesc": "A nourishing conditioner that leaves your pet's coat silky smooth.",
+    "available": true,
+    "skuCode": "COND-003",
+    "slug": "softpaws-conditioner"
+  },
+  {
+    "productTitle": "CleanPaws Paw Cleaner",
+    "rewardPoints": 40,
+    "startPrice": 8.99,
+    "endPrice": 15.99,
+    "sizes": [
+      {
+        "size": "Small",
+        "price": 8.99,
+        "images": [
+          "https://example.com/images/cleanpaws_small_1.jpg",
+          "https://example.com/images/cleanpaws_small_2.jpg"
+        ]
+      },
+      {
+        "size": "Medium",
+        "price": 12.99,
+        "images": [
+          "https://example.com/images/cleanpaws_medium_1.jpg",
+          "https://example.com/images/cleanpaws_medium_2.jpg"
+        ]
+      },
+      {
+        "size": "Large",
+        "price": 15.99,
+        "images": [
+          "https://example.com/images/cleanpaws_large_1.jpg",
+          "https://example.com/images/cleanpaws_large_2.jpg"
+        ]
+      }
+    ],
+    "shortDesc": "A portable paw cleaner to keep your pet's paws dirt-free after walks.",
+    "available": true,
+    "skuCode": "PAWCLEAN-004",
+    "slug": "cleanpaws-paw-cleaner"
+  }
+]
