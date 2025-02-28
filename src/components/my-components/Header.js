@@ -1,14 +1,5 @@
 "use client";
 
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-  NavigationMenuContent,
-} from "@/components/ui/navigation-menu";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
