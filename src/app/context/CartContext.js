@@ -6,7 +6,7 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(true);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Loading Cart fromt the local storage
   useEffect(() => {
@@ -23,39 +23,47 @@ export const CartProvider = ({ children }) => {
 
   // Add to cart function
   const addToCart = (item) => {
-    if (!item || !item.slug) {
+    if (!item || !item.slug || !item.selectedSize) {
       console.error("Invalid item:", item);
       return;
     }
   
     setCart((prev) => {
-      const existingItem = prev.find((i) => i?.slug === item.slug && i.selectedSize === item.selectedSize);
+      const existingItem = prev.find(
+        (i) => i.slug === item.slug && i.selectedSize === item.selectedSize
+      );
+  
       if (existingItem) {
         return prev.map((existedItem) =>
-          existedItem?.slug === item.slug
-            ? { ...existedItem, quantity: (existedItem.quantity || 1) + 1 }
+          existedItem.slug === item.slug && existedItem.selectedSize === item.selectedSize
+            ? { ...existedItem, quantity: existedItem.quantity + item.quantity }
             : existedItem
         );
       }
   
-      return [...prev, item];
+      return [...prev, { ...item, quantity: item.quantity || 1 }];
     });
   
     setIsCartOpen(true);
   };
   
+  
 
   // Remove from cart function
   const removeFromCart = (slug, size) => {
-    setCart((prev) => prev.filter((item) => item.slug !== slug && item.selectedSize === size));
+    setCart((prev) => prev.filter((item) => !(item.slug === slug && item.selectedSize === size)));
   };
 
   // Update quantity function
-  const updateQuantity = (slug, quantity) => {
+  const updateQuantity = (slug, selectedSize, quantity) => {
     setCart((prev) =>
-      prev.map((item) => (item.slug === slug && item.selectedSize === size ? { ...item, quantity } : item))
+      prev.map((item) =>
+        item.slug === slug && item.selectedSize === selectedSize ? { ...item, quantity } : item
+      )
     );
   };
+  
+  
 
   // Clear cart function
   const clearCart = () => {

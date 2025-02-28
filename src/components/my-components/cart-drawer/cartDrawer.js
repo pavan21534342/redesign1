@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useCart } from "@/app/context/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
+import Link from "next/link";
 
 export default function CartDrawer() {
   const { cart, removeFromCart, updateQuantity, isCartOpen, setIsCartOpen } =
@@ -74,7 +75,7 @@ export default function CartDrawer() {
                   </p>
                 ) : (
                   <p className="text-gray-600 text-sm text-center mt-1">
-                    Spend ${freeShippingThreshold - cartTotal} more for FREE
+                    Spend ${(freeShippingThreshold - cartTotal).toFixed(2)} more for FREE
                     Delivery.
                   </p>
                 )}
@@ -86,10 +87,10 @@ export default function CartDrawer() {
                   Your cart is empty
                 </p>
               ) : (
-                <ul className="space-y-4 flex-1 overflow-y-auto">
+                <ul  className="space-y-4 flex-1 overflow-y-auto">
                   {cart.map((item) => (
                     <motion.li
-                      key={item.id}
+                      key={`${item.slug}-${item.selectedSize.size}`}
                       className="flex items-center justify-between p-2 border-b"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -122,7 +123,7 @@ export default function CartDrawer() {
                               </p>
                             </div>
                           </div>
-                          <div  onClick={() => removeFromCart(item.slug, item.selectedSize.size)} className="text-red-800 font-normal cursor-pointer text-sm">
+                          <div  onClick={() => removeFromCart(item.slug, item.selectedSize)} className="text-red-800 font-normal cursor-pointer text-sm">
                             <p>Remove</p>
                           </div>  
                         </div>
@@ -162,10 +163,21 @@ export default function CartDrawer() {
                     <span>Subtotal:</span>
                     <span>${cartTotal?.toFixed(2)}</span>
                   </div>
+                  <div><p className="text-gray-600 text-sm mt-1">Taxes and shipping calculated at checkout</p></div>
                   <div className="mt-4 flex space-x-2">
+
+
+
                     <button className="flex-1 py-2 bg-black text-white rounded">
+                    <Link
+                      href="/cart"
+                      
+                    >
                       View Cart
+                      </Link>
                     </button>
+
+
                     <button className="flex-1 py-2 bg-blue-600 text-white rounded">
                       Checkout
                     </button>
