@@ -1,13 +1,10 @@
 [
   {
     "productTitle": "FreshPaws Pet Shampoo",
-    "rewardPoints": 50,
-    "startPrice": 9.99,
-    "endPrice": 19.99,
     "sizes": [
       {
         "size": "250ml",
-        "price": 9.99,
+        "price": 14.49,
         "images": [
           "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/5/4/544n5_euca_smell_expel_neutraliser_deodoriser_disinfectant_cleaner_herbal_5lt_lo_res_1.jpg",
           "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/1/2/12lt_smell_expell_herbal_png-min.png"
@@ -15,7 +12,7 @@
       },
       {
         "size": "500ml",
-        "price": 14.99,
+        "price": 20.50,
         "images": [
           "https://www.eucaonline.com.au/media/catalog/product/cache/8bd574bd67dbb87c1ce1a1174e67353e/g/r/groupshot_shampoo_jpg.jpg",
           "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/7/2/728sp_forever_use_500ml_euca_trigger_spray_bottle_lo_res_1.jpg"
@@ -23,10 +20,10 @@
       },
       {
         "size": "1L",
-        "price": 19.99,
+        "price": 29.00,
         "images": [
-          "https://example.com/images/freshpaws_1L_1.jpg",
-          "https://example.com/images/freshpaws_1L_2.jpg"
+          "https://www.eucaonline.com.au/media/catalog/product/cache/8bd574bd67dbb87c1ce1a1174e67353e/n/e/new_disinfectant_groupshot_jpg.jpg",
+          "https://www.eucaonline.com.au/media/catalog/product/cache/8bd574bd67dbb87c1ce1a1174e67353e/e/u/eucalyptus-disinfectant-10lt_1_1_1.png"
         ]
       }
     ],
@@ -36,33 +33,30 @@
     "slug": "freshpaws-pet-shampoo"
   },
   {
-    "productTitle": "PawsCare Flea Treatment",
-    "rewardPoints": 75,
-    "startPrice": 12.99,
-    "endPrice": 24.99,
+    "productTitle": "Multi Concentrate Super Strong Multipurpose Cleaner",
     "sizes": [
       {
         "size": "150ml",
         "price": 12.99,
         "images": [
-          "https://example.com/images/pawscare_150ml_1.jpg",
-          "https://example.com/images/pawscare_150ml_2.jpg"
+          "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/n/e/new_glass_500ml_png_transparent.png",
+          "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/g/l/glass_concentrate_10lt_-_800_x_800.jpg"
         ]
       },
       {
         "size": "300ml",
         "price": 18.99,
         "images": [
-          "https://example.com/images/pawscare_300ml_1.jpg",
-          "https://example.com/images/pawscare_300ml_2.jpg"
+          "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/5/4/541n5_euca_glass_all_surface_cleaner_5lt_lo_res.jpg",
+          "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/1/2/12lt_glass_surface_cleaner_jpg.jpg"
         ]
       },
       {
         "size": "500ml",
         "price": 24.99,
         "images": [
-          "https://example.com/images/pawscare_500ml_1.jpg",
-          "https://example.com/images/pawscare_500ml_2.jpg"
+          "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/g/l/glass_concentrate_20lt_-_800_x_800.jpg",
+          "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/n/e/new_spray_it_wipe_it_500ml_png_transparent-min.png"
         ]
       }
     ],
@@ -81,24 +75,24 @@
         "size": "200ml",
         "price": 10.99,
         "images": [
-          "https://example.com/images/softpaws_200ml_1.jpg",
-          "https://example.com/images/softpaws_200ml_2.jpg"
+          "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/n/e/new_spray_it_wipe_it_500ml_png_transparent-min.png",
+          "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/6/5/655n5_euca_spray_it_wipe_it_5lt_.jpg"
         ]
       },
       {
         "size": "400ml",
         "price": 16.99,
         "images": [
-          "https://example.com/images/softpaws_400ml_1.jpg",
-          "https://example.com/images/softpaws_400ml_2.jpg"
+          "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/6/5/655n5_euca_spray_it_wipe_it_5lt_.jpg",
+          "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/n/e/new_lift_it_500ml_png_transparent-min.png"
         ]
       },
       {
         "size": "750ml",
         "price": 21.99,
         "images": [
-          "https://example.com/images/softpaws_750ml_1.jpg",
-          "https://example.com/images/softpaws_750ml_2.jpg"
+          "https://www.eucaonline.com.au/media/catalog/product/cache/8bd574bd67dbb87c1ce1a1174e67353e/1/_/1_6_.jpg",
+          "https://www.eucaonline.com.au/media/catalog/product/cache/8bd574bd67dbb87c1ce1a1174e67353e/b/o/botanical_hand_body_wash_png_transparent_1.png"
         ]
       }
     ],

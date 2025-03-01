@@ -26,7 +26,6 @@ export default function CartDrawer() {
 
   return (
     <>
-      {/* AnimatePresence ensures smooth enter/exit animations */}
       <AnimatePresence>
         {isCartOpen && (
           <>
@@ -41,11 +40,11 @@ export default function CartDrawer() {
 
             {/* Cart Drawer */}
             <motion.div
-              className="fixed right-0 top-0 h-full w-96 bg-white p-6 shadow-lg z-50 flex flex-col"
+              className="fixed right-0 top-0 h-full w-[26rem] bg-white p-6 shadow-lg z-50 flex flex-col"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              transition={{ type: "spring", stiffness: 200, damping: 40 }}
             >
               {/* Close Button */}
 
@@ -87,11 +86,11 @@ export default function CartDrawer() {
                   Your cart is empty
                 </p>
               ) : (
-                <ul  className="space-y-4 flex-1 overflow-y-auto">
+                <ul  className="space-y-4 flex-1 overflow-y-auto cart-offcanvas-scroller">
                   {cart.map((item) => (
                     <motion.li
                       key={`${item.slug}-${item.selectedSize.size}`}
-                      className="flex items-center justify-between p-2 border-b"
+                      className="flex items-center justify-between py-2 mr-2 border-b"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3 }}
@@ -123,7 +122,7 @@ export default function CartDrawer() {
                               </p>
                             </div>
                           </div>
-                          <div  onClick={() => removeFromCart(item.slug, item.selectedSize)} className="text-red-800 font-normal cursor-pointer text-sm">
+                          <div  onClick={() => removeFromCart(item.slug, item.selectedSize)} className="text-red-800 font-normal cursor-pointer text-sm transition-all hover:text-red-600">
                             <p>Remove</p>
                           </div>  
                         </div>
@@ -168,17 +167,17 @@ export default function CartDrawer() {
 
 
 
-                    <button className="flex-1 py-2 bg-black text-white rounded">
-                    <Link
+                    <button className="flex-1 py-2 bg-egray-900 hover:bg-black duration-300 transition-colors text-white rounded">
+                    <a
                       href="/cart"
                       
                     >
                       View Cart
-                      </Link>
+                      </a>
                     </button>
 
 
-                    <button className="flex-1 py-2 bg-blue-600 text-white rounded">
+                    <button className="flex-1 py-2 bg-egreen-800 text-white rounded">
                       Checkout
                     </button>
                   </div>

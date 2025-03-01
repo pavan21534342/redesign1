@@ -30,12 +30,12 @@ export const CartProvider = ({ children }) => {
   
     setCart((prev) => {
       const existingItem = prev.find(
-        (i) => i.slug === item.slug && i.selectedSize === item.selectedSize
+        (i) => i.slug === item.slug && i.selectedSize.size === item.selectedSize.size
       );
   
       if (existingItem) {
         return prev.map((existedItem) =>
-          existedItem.slug === item.slug && existedItem.selectedSize === item.selectedSize
+          existedItem.slug === item.slug && existedItem.selectedSize.size === item.selectedSize.size
             ? { ...existedItem, quantity: existedItem.quantity + item.quantity }
             : existedItem
         );

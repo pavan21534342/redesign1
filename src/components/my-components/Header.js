@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { RxAvatar } from "react-icons/rx";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { PiShoppingCartSimpleLight } from "react-icons/pi";
+import { useCart } from "@/app/context/CartContext";
 
 
 const menuItems = [
@@ -17,8 +19,8 @@ const menuItems = [
     hasDropdown: true,
     links: [
       { name: "Laundry Powder", href: "/products/freshpaws-pet-shampoo" },
-      { name: "Pet Shampoo", href: "/" },
-      { name: "Dish Washing Powder", href: "/" },
+      { name: "Pet Shampoo", href: "/products/softpaws-conditioner" },
+      { name: "Dish Washing Powder", href: "/products/pawscare-flea-treatment" },
     ],
   },
   {
@@ -55,6 +57,9 @@ const menuItems = [
 export default function Header() {
   const [openMenu, setOpenMenu] = useState(null);
   const [hovering, setHovering] = useState(false);
+
+  const { isCartOpen, setIsCartOpen} = useCart();
+  
 
   useEffect(() => {
     if (!hovering) {
@@ -159,6 +164,11 @@ export default function Header() {
       </div>
       <div className="flex items-center justify-end flex-row space-x-2 w-1/5">
         <IoSearchOutline className="text-white text-2xl cursor-pointer hover:text-white/70"/>
+        <PiShoppingCartSimpleLight
+        
+        onClick={() => setIsCartOpen(true)}
+        
+        className="text-white text-2xl stroke-2 cursor-pointer hover:text-white/70"/>
         <RxAvatar className="text-white text-2xl cursor-pointer hover:text-white/70" />
         <IoMdHeartEmpty className="text-white text-2xl cursor-pointer hover:text-white/70"/>
       </div>

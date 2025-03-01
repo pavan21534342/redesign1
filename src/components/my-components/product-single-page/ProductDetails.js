@@ -75,6 +75,7 @@ export default function ProductDetails({ product }) {
   const handleSizeChange = (size) => {
     setSelectedSize(size);
     setSelectedImage(size.images[0]);
+    setQuantity(1);
   };
 
   const handleQuantityChange = (change) => {
@@ -149,7 +150,7 @@ export default function ProductDetails({ product }) {
         </div>
 
         {/* Product Side details */}
-        <div className="w-full md:min-w-max flex flex-col gap-4">
+        <div className="w-full md:min-w-[50%] flex flex-col gap-4">
           <div className="flex flex-col gap-4">
             <h1 className="text-3xl font-semibold text-egray-950">
               {product.productTitle}
@@ -235,9 +236,7 @@ export default function ProductDetails({ product }) {
                   <AnimatePresence mode="popLayout" custom={direction}>
                     <motion.span
                       key={quantity}
-                      // initial={{ opacity: 0, x: direction * 20 }} // Enter from correct side
-                      // animate={{ opacity: 1, x: 0 }} // Settle at center
-                      // exit={{ opacity: 0, x: direction * -20 }} // Exit in opposite direction
+
                       initial={{ opacity: 0, x: (direction || 1) * 20 }} // Ensure default value
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: (direction || 1) * -20 }} // Ensure default value

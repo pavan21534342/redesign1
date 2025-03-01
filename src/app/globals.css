@@ -8,6 +8,55 @@ body{
 }
 
 
+.cart-offcanvas-scroller::-webkit-scrollbar-thumb {
+  background: #4fb979;
+  border-radius: 8px;
+}
+
+.cart-offcanvas-scroller::-webkit-scrollbar-track {
+  background: #eaeaea;
+  border-radius: 8px;
+}
+
+.cart-offcanvas-scroller::-webkit-scrollbar {
+  width: 6px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .cart-offcanvas-scroller {
+      scrollbar-color: #4fb979
+      #eaeaea;
+  }
+}
+
+
+body {
+  --sb-track-color: #c5ccc3;
+  --sb-thumb-color: #0e6c39;
+  --sb-size: 6px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 8px;
+  
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
 
 @layer base {
   :root {
