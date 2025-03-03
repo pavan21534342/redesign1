@@ -10,7 +10,6 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoCaretForward } from "react-icons/io5";
 import { IoCaretBack } from "react-icons/io5";
 import { ChevronDown } from "lucide-react";
-import Image from "next/image";
 
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity } = useCart();
@@ -105,11 +104,8 @@ export default function CartPage() {
                 </div>
               ))
             ) : cart.length === 0 ? (
-              <div className="flex flex-col gap-4 items-center text-center py-10">
+              <div className="text-center py-10">
                 <p className="text-gray-500">No products added to cart.</p>
-                <button className="w-fit bg-egreen-800 hover:bg-green-700 transition-links text-white py-2 px-4 rounded">
-                  View all products
-                </button>
               </div>
             ) : (
               cart.map((item) => (
@@ -224,15 +220,7 @@ export default function CartPage() {
                 <div className="w-full h-10 bg-gray-300 rounded"></div>
               </div>
             ) : cart.length === 0 ? (
-              <div className="flex flex-col gap-1 h-full justify-center items-center p-4">
-                <Image
-                  src="https://www.eucaonline.com.au/media/Euca_Plant_Images/Mascot.svg"
-                  alt="Euca Logo"
-                  width={160}
-                  height={160}
-                />
-                <p className="text-center text-gray-500">Your cart is empty.</p>
-              </div>
+              <p className="text-center text-gray-500">Your cart is empty.</p>
             ) : (
               <>
                 {" "}

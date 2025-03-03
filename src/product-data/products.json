@@ -1,6 +1,7 @@
 [
   {
     "productTitle": "FreshPaws Pet Shampoo",
+    "category": "Pet Care",
     "sizes": [
       {
         "size": "250ml",
@@ -111,8 +112,8 @@
         "size": "Small",
         "price": 8.99,
         "images": [
-          "https://example.com/images/cleanpaws_small_1.jpg",
-          "https://example.com/images/cleanpaws_small_2.jpg"
+          "https://www.eucaonline.com.au/media/catalog/product/cache/8bd574bd67dbb87c1ce1a1174e67353e/e/u/eucalyptus-disinfectant-10lt_1_1_1.png",
+          "https://www.eucaonline.com.au/media/catalog/product/cache/8bd574bd67dbb87c1ce1a1174e67353e/1/_/1_6_.jpg"
         ]
       },
       {

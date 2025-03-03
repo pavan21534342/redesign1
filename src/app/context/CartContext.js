@@ -51,7 +51,7 @@ export const CartProvider = ({ children }) => {
 
   // Remove from cart function
   const removeFromCart = (slug, size) => {
-    setCart((prev) => prev.filter((item) => !(item.slug === slug && item.selectedSize === size)));
+    setCart((prev) => prev.filter((item) => !(item.slug === slug && item.selectedSize.size === size)));
   };
 
   // Update quantity function

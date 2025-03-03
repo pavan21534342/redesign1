@@ -74,8 +74,8 @@ export default function CartDrawer() {
                   </p>
                 ) : (
                   <p className="text-gray-600 text-sm text-center mt-1">
-                    Spend ${(freeShippingThreshold - cartTotal).toFixed(2)} more for FREE
-                    Delivery.
+                    Spend ${(freeShippingThreshold - cartTotal).toFixed(2)} more
+                    for FREE Delivery.
                   </p>
                 )}
               </div>
@@ -86,7 +86,7 @@ export default function CartDrawer() {
                   Your cart is empty
                 </p>
               ) : (
-                <ul  className="space-y-4 flex-1 overflow-y-auto cart-offcanvas-scroller">
+                <ul className="space-y-4 flex-1 overflow-y-auto cart-offcanvas-scroller">
                   {cart.map((item) => (
                     <motion.li
                       key={`${item.slug}-${item.selectedSize.size}`}
@@ -122,9 +122,14 @@ export default function CartDrawer() {
                               </p>
                             </div>
                           </div>
-                          <div  onClick={() => removeFromCart(item.slug, item.selectedSize)} className="text-red-800 font-normal cursor-pointer text-sm transition-all hover:text-red-600">
+                          <div
+                            onClick={() =>
+                              removeFromCart(item.slug, item.selectedSize.size)
+                            }
+                            className="text-red-800 font-normal cursor-pointer text-sm transition-all hover:text-red-600"
+                          >
                             <p>Remove</p>
-                          </div>  
+                          </div>
                         </div>
 
                         {/* <div className="flex items-center mt-1">
@@ -162,24 +167,30 @@ export default function CartDrawer() {
                     <span>Subtotal:</span>
                     <span>${cartTotal?.toFixed(2)}</span>
                   </div>
-                  <div><p className="text-gray-600 text-sm mt-1">Taxes and shipping calculated at checkout</p></div>
-                  <div className="mt-4 flex space-x-2">
-
-
-
-                    <button className="flex-1 py-2 bg-egray-900 hover:bg-black duration-300 transition-colors text-white rounded">
-                    <a
+                  <div>
+                    <p className="text-gray-600 text-sm mt-1">
+                      Taxes and shipping calculated at checkout
+                    </p>
+                  </div>
+                  <div className="mt-4 flex w-full space-x-2">
+                    <Link
+                      onClick={() => setIsCartOpen(false)}
                       href="/cart"
-                      
+                      className="flex-1"
                     >
-                      View Cart
-                      </a>
-                    </button>
-
-
-                    <button className="flex-1 py-2 bg-egreen-800 text-white rounded">
-                      Checkout
-                    </button>
+                      <button className="w-full py-2 bg-egray-900 hover:bg-black transition-links text-white rounded">
+                        View Cart
+                      </button>
+                    </Link>
+                    <Link
+                      onClick={() => setIsCartOpen(false)}
+                      href="/cart"
+                      className="flex-1"
+                    >
+                      <button className="w-full py-2 bg-egreen-800 hover:bg-egreen-950 transition-links text-white rounded">
+                        Checkout
+                      </button>
+                    </Link>
                   </div>
                 </motion.div>
               )}

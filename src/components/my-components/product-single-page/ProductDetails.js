@@ -10,43 +10,6 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { useCart } from "@/app/context/CartContext";
 
-// {
-//   "productTitle": "FreshPaws Pet Shampoo",
-//   "rewardPoints": 50,
-//   "startPrice": 9.99,
-//   "endPrice": 19.99,
-//   "sizes": [
-//     {
-//       "size": "250ml",
-//       "price": 9.99,
-//       "images": [
-//         "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/5/4/544n5_euca_smell_expel_neutraliser_deodoriser_disinfectant_cleaner_herbal_5lt_lo_res_1.jpg",
-//         "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/1/2/12lt_smell_expell_herbal_png-min.png"
-//       ]
-//     },
-//     {
-//       "size": "500ml",
-//       "price": 14.99,
-//       "images": [
-//         "https://www.eucaonline.com.au/media/catalog/product/cache/8bd574bd67dbb87c1ce1a1174e67353e/g/r/groupshot_shampoo_jpg.jpg",
-//         "https://www.eucaonline.com.au/media/catalog/product/cache/56a5c0bb67c9ab146bbe435a70762341/7/2/728sp_forever_use_500ml_euca_trigger_spray_bottle_lo_res_1.jpg"
-//       ]
-//     },
-//     {
-//       "size": "1L",
-//       "price": 19.99,
-//       "images": [
-//         "https://example.com/images/freshpaws_1L_1.jpg",
-//         "https://example.com/images/freshpaws_1L_2.jpg"
-//       ]
-//     }
-//   ],
-//   "shortDesc": "A gentle, organic shampoo for your pets that keeps their fur soft and clean.",
-//   "available": true,
-//   "skuCode": "PETSHMP-001",
-//   "slug": "freshpaws-pet-shampoo"
-// },
-
 export default function ProductDetails({ product }) {
   const { addToCart } = useCart();
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
@@ -68,7 +31,7 @@ export default function ProductDetails({ product }) {
   const handleAddToCart = async () => {
     setLoading(true); // Start loading
     await new Promise((resolve) => setTimeout(resolve, 500)); // Simulate network delay
-    addToCart({ ...product, quantity, selectedSize});
+    addToCart({ ...product, quantity, selectedSize });
     setLoading(false); // Stop loading
   };
 
@@ -76,20 +39,32 @@ export default function ProductDetails({ product }) {
     setSelectedSize(size);
     setSelectedImage(size.images[0]);
     setQuantity(1);
+    const newRewardPoints = Math.round(size.price);
+  setRewardPoints(newRewardPoints);
+  setRewardValue((newRewardPoints * 0.02).toFixed(2));
   };
 
   const handleQuantityChange = (change) => {
-    if (quantity + change < 1) return; // Prevent negative numbers
-    setDirection(change > 0 ? 1 : -1); // Set direction based on increment or decrement
-    setQuantity((prev) => Math.max(1, prev + change));
+    if (quantity + change < 1) return; 
+    setDirection(isNaN(change) ? 1 : change > 0 ? 1 : -1); 
+
+    const newQuantity = Math.max(1, quantity + change);
+    setQuantity(newQuantity);
+
+
+    const newRewardPoints = Math.round(selectedSize.price) * newQuantity;
+    setRewardPoints(newRewardPoints);
+    setRewardValue((newRewardPoints * 0.02).toFixed(2));
   };
 
   const toggleFavorite = () => {
     setIsFavorite(!isFavorite);
   };
 
-  const rewardPoints = Math.round(selectedSize.price);
-  const rewardValue = (rewardPoints * 0.02).toFixed(2);
+  const [rewardPoints, setRewardPoints] = useState(Math.round(selectedSize.price));
+  const [rewardValue, setRewardValue] = useState((rewardPoints * 0.02).toFixed(2));
+  // const rewardPoints = Math.round(selectedSize.price);
+  // const rewardValue = (rewardPoints * 0.02).toFixed(2);
 
   const hasMultipleSizes = product.sizes.length > 1;
   const startingPrice = hasMultipleSizes ? product.sizes[0].price : null;
@@ -145,6 +120,7 @@ export default function ProductDetails({ product }) {
               zoomType="hover"
               hideHint={true}
               className="object-cover"
+              
             />
           </div>
         </div>
@@ -236,10 +212,18 @@ export default function ProductDetails({ product }) {
                   <AnimatePresence mode="popLayout" custom={direction}>
                     <motion.span
                       key={quantity}
-
-                      initial={{ opacity: 0, x: (direction || 1) * 20 }} // Ensure default value
+                      // initial={{ opacity: 0, x: (direction || 1) * 20 }} // Ensure default value
+                      // animate={{ opacity: 1, x: 0 }}
+                      // exit={{ opacity: 0, x: (direction || 1) * -20 }} // Ensure default value
+                      initial={{
+                        opacity: 0,
+                        x: isNaN(direction) ? 20 : direction * 20,
+                      }}
                       animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: (direction || 1) * -20 }} // Ensure default value
+                      exit={{
+                        opacity: 0,
+                        x: isNaN(direction) ? -20 : direction * -20,
+                      }}
                       transition={{
                         type: "tween",
                         duration: 0.3,
@@ -260,43 +244,43 @@ export default function ProductDetails({ product }) {
               </div>
               {/* Add to cart */}
               <div className="w-[40%]">
-              <button
-        onClick={handleAddToCart}
-        disabled={loading}
-        className={`w-full transition-all py-2 rounded-lg text-white ${
-          loading
-            ? "bg-gray-400 cursor-not-allowed"
-            : "bg-egreen-600 hover:bg-egreen-700"
-        }`}
-      >
-        {loading ? (
-          <div className="flex items-center justify-center">
-            <svg
-              className="animate-spin h-5 w-5 mr-2 text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8v8H4z"
-              ></path>
-            </svg>
-            Adding...
-          </div>
-        ) : (
-          "Add to Cart"
-        )}
-      </button>
+                <button
+                  onClick={handleAddToCart}
+                  disabled={loading}
+                  className={`w-full transition-all py-2 rounded-lg text-white ${
+                    loading
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-egreen-600 hover:bg-egreen-700"
+                  }`}
+                >
+                  {loading ? (
+                    <div className="flex items-center justify-center">
+                      <svg
+                        className="animate-spin h-5 w-5 mr-2 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v8H4z"
+                        ></path>
+                      </svg>
+                      Adding...
+                    </div>
+                  ) : (
+                    "Add to Cart"
+                  )}
+                </button>
               </div>
               {/* Add to Favs */}
 

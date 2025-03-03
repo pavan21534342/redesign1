@@ -2,17 +2,31 @@ import Image from "next/image";
 import { CiPhone } from "react-icons/ci";
 import { CiLocationOn } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
-import { FaSpinner } from "react-icons/fa";
+import { CiFacebook } from "react-icons/ci";
+import { CiInstagram } from "react-icons/ci";
+import { CiYoutube } from "react-icons/ci";
+
 
 export default function Footer() {
 
   return (
-    <footer className="bg-skygreen-100 c py-8">
+    <footer className="bg-skygreen-100 py-8">
       {/* Social Networks Section */}
-      <div className="text-center mb-6">
+      <div className="flex items-center align-middle justify-center gap-4 mb-8">
         <p className="text-lg font-semibold">
           Get connected with us on social networks:
         </p>
+        <div className="flex justify-center items-center align-middle gap-4">
+          <a target="_blank" href="https://www.facebook.com/Euca.laundry.Eucalyptus.cleaning/" className="">
+            <CiFacebook className="text-egray-700 hover:text-black transition duration-300 text-3xl" />
+          </a>
+          <a target="_blank" href="https://www.instagram.com/eucaonlinecleaningproducts/?hl=en" className="">
+            <CiInstagram className="text-egray-700 hover:text-black transition duration-300 text-3xl" />
+          </a>
+          <a target="_blank" href="https://www.youtube.com/channel/UCvYrGVTHJiX3JkeXdYTFgvg" className="">
+            <CiYoutube className="text-egray-700 hover:text-black transition duration-300 text-3xl" />
+          </a>
+        </div>
       </div>
 
       {/* Footer Content Grid */}
@@ -157,14 +171,23 @@ export default function Footer() {
           {/* Contact Section */}
           <div>
             <h5 className="text-xl font-bold text-egray-900 mb-4">Contact</h5>
-            <ul className="space-y-2 text-egray-700">
-              <li>
-                <CiPhone />
+            <ul className="space-y-2 ">
+              <li className="flex items-center gap-2 text-egray-700 hover:text-black transition duration-300">
+                <CiLocationOn className="text-egray-700 text-lg stroke-[0.5px]" />
                 Unit 1 / 25 Burns Rd, Altona VIC 3018
               </li>
-              <li>admin@eucaonline.com.au</li>
-              <li>03 8368 2522</li>
-              <li>+ 01 234 567 89</li>
+              <li className="flex items-center gap-2 text-egray-700 hover:text-black transition duration-300">
+                <CiMail className="text-egray-700 text-lg stroke-[0.5px]" />
+                admin@eucaonline.com.au
+              </li>
+              <li className="flex items-center gap-2 text-egray-700 hover:text-black transition duration-300">
+                <CiPhone className="text-egray-700 text-lg stroke-[0.5px]" />
+                03 8368 2522
+              </li>
+              <li className="flex items-center gap-2 text-egray-700 hover:text-black transition duration-300">
+                <CiPhone className="text-egray-700 text-lg stroke-[0.5px]" />
+                + 01 234 567 89
+              </li>
             </ul>
           </div>
         </div>
