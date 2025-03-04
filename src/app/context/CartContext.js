@@ -45,6 +45,7 @@ export const CartProvider = ({ children }) => {
     });
   
     setIsCartOpen(true);
+    
   };
   
   

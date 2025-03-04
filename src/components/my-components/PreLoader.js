@@ -10,20 +10,26 @@ const Layout = ({ children }) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    setIsLoading(true); // Show preloader when navigating
+    setIsLoading(true);
 
     const timeout = setTimeout(() => {
-      setIsLoading(false); // Hide preloader after timeout
-    }, 2000);
+      setIsLoading(false);
+    }, 1500);
 
-    return () => clearTimeout(timeout); // Cleanup timeout on route changes
-  }, [pathname]); // Runs when the route changes
+    return () => clearTimeout(timeout);
+  }, [pathname]);
 
-  // Page transition animations
+  // Preloader animations
+  const preloaderVariants = {
+    // hidden: { y: "-100vh" },
+    visible: { y: 0, transition: { duration: 0.4, ease: "easeIn" } },
+    exit: { y: "100vh", transition: { duration: 0.9, ease: "circInOut" } },
+  };
+
+  // Page transitions
   const pageVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-    exit: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.4 } },
   };
 
   return (
@@ -33,38 +39,33 @@ const Layout = ({ children }) => {
         {isLoading && (
           <motion.div
             key="preloader"
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={preloaderVariants}
             className="fixed inset-0 flex items-center justify-center bg-white z-50"
           >
             <Image
               src="https://www.eucaonline.com.au/media/banner/Benny-euca-loader.gif"
               alt="Loading..."
-              width={200}
-              height={200}
+              width={300}
+              height={300}
               priority
             />
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Page Content - Fades in after preloader */}
-      {!isLoading && (
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={pathname}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={pageVariants}
-            transition={{ duration: 0.5 }}
-          >
-            {children}
-          </motion.div>
-        </AnimatePresence>
-      )}
+      {/* Page Content - No Blank Screen! */}
+      <motion.div
+        key={pathname}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        variants={pageVariants}
+      >
+        {children}
+      </motion.div>
     </>
   );
 };

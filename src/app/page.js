@@ -1,7 +1,14 @@
+import ProductListing from "@/components/my-components/product-listing/ProductListing";
+import products from "@/product-data/products.json";
+
+
+
 export default function Home() {
   return (
     <div>
-      Home
+     <ProductListing products={products}  />;
       </div>
   );
 }
+
+
