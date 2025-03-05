@@ -51,9 +51,9 @@ export default function ProductListing({ products }) {
           <h1 className="text-xl font-bold">Products ({products.length})</h1>
           <button
             onClick={toggleView}
-            className="flex gap-2 justify-end items-center text-egray-700 hover:text-egreen-700 transition-links"
+            className="flex gap-2 justify-end items-end text-egray-700 hover:text-egreen-700 transition-links"
           >
-            <div className="flex flex-col items-end text-[0.7rem]">
+            <div className="flex flex-col justify-end items-end text-[0.7rem]">
               <span>Press 'T' to toggle</span>
             </div>
             <AnimatePresence mode="wait">

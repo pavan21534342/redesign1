@@ -170,8 +170,10 @@ export default function Header() {
         
         className="text-white text-2xl stroke-2 cursor-pointer hover:text-white/70"/>
         <RxAvatar className="text-white text-2xl cursor-pointer hover:text-white/70" />
-        <IoMdHeartEmpty className="text-white text-2xl cursor-pointer hover:text-white/70"/>
-      </div>
+        <Link href="/wishlist">
+            <IoMdHeartEmpty className="text-white text-2xl cursor-pointer hover:text-white/70"/>
+        </Link>
+      </div>  
       </div>
     </header>
   );

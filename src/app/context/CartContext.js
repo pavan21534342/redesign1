@@ -1,38 +1,35 @@
-"use client"
+"use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    if (typeof window !== "undefined") {
+      const storedCart = localStorage.getItem("cart");
+      return storedCart ? JSON.parse(storedCart) : [];
+    }
+    return [];
+  });
+
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // Loading Cart fromt the local storage
   useEffect(() => {
-    const storedCart = localStorage.getItem("cart");
-    if (storedCart) {
-      setCart(JSON.parse(storedCart));
-    }
-  }, []);
-
-  // Saving Cart to the local storage
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart)); // Always update local storage
   }, [cart]);
 
-  // Add to cart function
   const addToCart = (item) => {
     if (!item || !item.slug || !item.selectedSize) {
       console.error("Invalid item:", item);
       return;
     }
-  
+
     setCart((prev) => {
       const existingItem = prev.find(
         (i) => i.slug === item.slug && i.selectedSize.size === item.selectedSize.size
       );
-  
+
       if (existingItem) {
         return prev.map((existedItem) =>
           existedItem.slug === item.slug && existedItem.selectedSize.size === item.selectedSize.size
@@ -40,22 +37,21 @@ export const CartProvider = ({ children }) => {
             : existedItem
         );
       }
-  
+
       return [...prev, { ...item, quantity: item.quantity || 1 }];
     });
-  
+
     setIsCartOpen(true);
-    
   };
-  
-  
 
-  // Remove from cart function
   const removeFromCart = (slug, size) => {
-    setCart((prev) => prev.filter((item) => !(item.slug === slug && item.selectedSize.size === size)));
+    setCart((prev) => {
+      const updatedCart = prev.filter((item) => !(item.slug === slug && item.selectedSize.size === size));
+      localStorage.setItem("cart", JSON.stringify(updatedCart)); // Fix local storage not updating
+      return updatedCart;
+    });
   };
 
-  // Update quantity function
   const updateQuantity = (slug, selectedSize, quantity) => {
     setCart((prev) =>
       prev.map((item) =>
@@ -63,12 +59,10 @@ export const CartProvider = ({ children }) => {
       )
     );
   };
-  
-  
 
-  // Clear cart function
   const clearCart = () => {
     setCart([]);
+    localStorage.removeItem("cart"); // Make sure storage clears when the cart is empty
   };
 
   return (

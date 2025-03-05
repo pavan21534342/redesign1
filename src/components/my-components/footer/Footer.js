@@ -5,10 +5,9 @@ import { CiMail } from "react-icons/ci";
 import { CiFacebook } from "react-icons/ci";
 import { CiInstagram } from "react-icons/ci";
 import { CiYoutube } from "react-icons/ci";
-
+import ToolTip from "@/components/my-components/ToolTip";
 
 export default function Footer() {
-
   return (
     <footer className="bg-skygreen-100 py-8">
       {/* Social Networks Section */}
@@ -17,13 +16,25 @@ export default function Footer() {
           Get connected with us on social networks:
         </p>
         <div className="flex justify-center items-center align-middle gap-4">
-          <a target="_blank" href="https://www.facebook.com/Euca.laundry.Eucalyptus.cleaning/" className="">
+          <a
+            target="_blank"
+            href="https://www.facebook.com/Euca.laundry.Eucalyptus.cleaning/"
+            className=""
+          >
             <CiFacebook className="text-egray-700 hover:text-black transition duration-300 text-3xl" />
           </a>
-          <a target="_blank" href="https://www.instagram.com/eucaonlinecleaningproducts/?hl=en" className="">
+          <a
+            target="_blank"
+            href="https://www.instagram.com/eucaonlinecleaningproducts/?hl=en"
+            className=""
+          >
             <CiInstagram className="text-egray-700 hover:text-black transition duration-300 text-3xl" />
           </a>
-          <a target="_blank" href="https://www.youtube.com/channel/UCvYrGVTHJiX3JkeXdYTFgvg" className="">
+          <a
+            target="_blank"
+            href="https://www.youtube.com/channel/UCvYrGVTHJiX3JkeXdYTFgvg"
+            className=""
+          >
             <CiYoutube className="text-egray-700 hover:text-black transition duration-300 text-3xl" />
           </a>
         </div>
@@ -170,7 +181,9 @@ export default function Footer() {
 
           {/* Contact Section */}
           <div>
-            <h5 className="text-xl font-bold text-egray-900 mb-4">Contact</h5>
+            <ToolTip content="This is a tooltip" placement="top">
+              <h5 className="text-xl font-bold text-egray-900 mb-4">Contact</h5>
+            </ToolTip>
             <ul className="space-y-2 ">
               <li className="flex items-center gap-2 text-egray-700 hover:text-black transition duration-300">
                 <CiLocationOn className="text-egray-700 text-lg stroke-[0.5px]" />
@@ -185,8 +198,8 @@ export default function Footer() {
                 03 8368 2522
               </li>
               <li className="flex items-center gap-2 text-egray-700 hover:text-black transition duration-300">
-                <CiPhone className="text-egray-700 text-lg stroke-[0.5px]" />
-                + 01 234 567 89
+                <CiPhone className="text-egray-700 text-lg stroke-[0.5px]" />+
+                01 234 567 89
               </li>
             </ul>
           </div>

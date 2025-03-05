@@ -6,7 +6,7 @@ import CartDrawer from "@/components/my-components/cart-drawer/cartDrawer";
 import Footer from "@/components/my-components/footer/Footer";
 import ScrollToTopButton from "@/components/my-components/ScrollToTopButton";
 import Layout from "@/components/my-components/PreLoader";
-
+import { WishlistProvider } from "./context/WishlistContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,18 +22,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${inter.variable} antialiased`}>
-      <Layout>
-        <CartProvider>
+        <Layout>
+          <CartProvider>
+            <WishlistProvider>
+              <CartDrawer />
 
-          <CartDrawer />
+              <Header />
+              {children}
+              <Footer />
 
-          <Header />
-          {children}
-          <Footer />
-
-          <ScrollToTopButton />
-                      
-        </CartProvider>
+              <ScrollToTopButton />
+            </WishlistProvider>
+          </CartProvider>
         </Layout>
       </body>
     </html>

@@ -4,6 +4,7 @@ import { Eye, Link as LinkIcon, Heart } from "lucide-react";
 import { useCart } from "@/app/context/CartContext";
 import QuickLook from "./QuickLook";
 import Link from "next/link";
+import { useWishlist } from "@/app/context/WishlistContext";
 
 export default function ProductCard({
   product,
@@ -12,11 +13,15 @@ export default function ProductCard({
   onSizeChange,
 }) {
   const { addToCart } = useCart();
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
   const [direction, setDirection] = useState(1);
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(false);
   const [showQuickLook, setShowQuickLook] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
+  const isWishlisted = wishlist.some((item) => item.slug === product.slug);
+
 
   const handleAddToCart = async () => {
     setLoading(true); // Start loading
@@ -114,11 +119,13 @@ export default function ProductCard({
                 variants={itemVariants}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => {(isWishlisted ? removeFromWishlist(product.slug) : addToWishlist(product));}}
                 className="hover:bg-egreen-900 bg-black  cursor-pointer rounded-full p-2 transition-colors group"
               >
                 <Heart
+                  fill={(isWishlisted ? "#fff" : "transparent")}
                   size={20}
-                  className=" stroke-2 text-white transition-links"
+                  className="stroke-2 text-white transition-links"
                 />
               </motion.div>
               <motion.div
@@ -336,9 +343,11 @@ export default function ProductCard({
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => {(isWishlisted ? removeFromWishlist(product.slug) : addToWishlist(product));}}
                     className="hover:bg-egreen-900 border cursor-pointer rounded-full p-2 transition-colors group"
                   >
                     <Heart
+                      fill={(isWishlisted ? "#0e5932 " : "transparent")}
                       size={20}
                       className="text-egray-600 stroke-2 group-hover:text-white"
                     />

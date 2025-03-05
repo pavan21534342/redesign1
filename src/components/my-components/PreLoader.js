@@ -51,6 +51,7 @@ const Layout = ({ children }) => {
               width={300}
               height={300}
               priority
+              unoptimized
             />
           </motion.div>
         )}

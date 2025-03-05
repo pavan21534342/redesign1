@@ -131,24 +131,6 @@ export default function CartDrawer() {
                             <p>Remove</p>
                           </div>
                         </div>
-
-                        {/* <div className="flex items-center mt-1">
-                          <input
-                            type="number"
-                            value={item.quantity}
-                            min="1"
-                            onChange={(e) =>
-                              updateQuantity(item.id, Number(e.target.value))
-                            }
-                            className="w-12 border rounded p-1 text-center"
-                          />
-                          <button
-                            onClick={() => removeFromCart(item.id, item.size)}
-                            className="ml-2 text-red-500 text-sm"
-                          >
-                            ✖
-                          </button>
-                        </div> */}
                       </div>
                     </motion.li>
                   ))}

@@ -9,16 +9,20 @@ import ReviewCreater from "./ReviewCreater";
 import Image from "next/image";
 import { useEffect } from "react";
 import { useCart } from "@/app/context/CartContext";
+import { useWishlist } from "@/app/context/WishlistContext";
+import { Heart } from "lucide-react";
 
 export default function ProductDetails({ product }) {
   const { addToCart } = useCart();
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const [selectedImage, setSelectedImage] = useState(selectedSize.images[0]);
   const [quantity, setQuantity] = useState(1);
   const [direction, setDirection] = useState(1);
-  const [isFavorite, setIsFavorite] = useState(false);
   const [activeTab, setActiveTab] = useState("Details");
   const [loading, setLoading] = useState(false);
+  
+  const isWishlisted = wishlist.some((item) => item.slug === product.slug);
 
   useEffect(() => {
     setSelectedSize(product.sizes[0]);
@@ -52,15 +56,12 @@ export default function ProductDetails({ product }) {
     const newQuantity = Math.max(1, quantity + change);
     setQuantity(newQuantity);
 
-
     const newRewardPoints = Math.round(selectedSize.price) * newQuantity;
     setRewardPoints(newRewardPoints);
     setRewardValue((newRewardPoints * 0.02).toFixed(2));
   };
 
-  const toggleFavorite = () => {
-    setIsFavorite(!isFavorite);
-  };
+
 
   const [rewardPoints, setRewardPoints] = useState(Math.round(selectedSize.price));
   const [rewardValue, setRewardValue] = useState((rewardPoints * 0.02).toFixed(2));
@@ -230,7 +231,7 @@ export default function ProductDetails({ product }) {
                         duration: 0.3,
                         ease: "easeInOut",
                       }}
-                      className="absolute text-lg font-semibold"
+                      className="absolute top-0.5 text-lg font-semibold"
                     >
                       {quantity}
                     </motion.span>
@@ -284,33 +285,22 @@ export default function ProductDetails({ product }) {
                 </button>
               </div>
               {/* Add to Favs */}
-
               <motion.div
-                className="p-3 w-fit h-fit rounded-full flex justify-center bg-gray-200 items-center cursor-pointer"
-                onClick={toggleFavorite}
-                whileTap={{ scale: 0.9 }} // Shrinks on tap for feedback
+                className="p-2.5 w-fit h-fit rounded-full flex justify-center bg-gray-200 items-center cursor-pointer"
+                onClick={() => {(isWishlisted ? removeFromWishlist(product.slug) : addToWishlist(product))}}
+                whileTap={{ scale: 0.9 }} 
+                animate={{ scale: 1.1, opacity: 1 }}
               >
-                {isFavorite ? (
                   <motion.div
                     key="filled"
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1.1, opacity: 1 }}
+                    whileTap={{ scale: 0.9 }} 
                     exit={{ scale: 0, opacity: 0 }}
                     transition={{ type: "spring", stiffness: 200, damping: 10 }}
                   >
-                    <IoMdHeart className="text-xl align-middle text-egreen-700 fill-egreen-700" />
+                    <Heart fill={isWishlisted ? "#0a8b44" : "transparent"} size={18} className="align-middle text-egreen-700" />
                   </motion.div>
-                ) : (
-                  <motion.div
-                    key="empty"
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1.1, opacity: 1 }}
-                    exit={{ scale: 0, opacity: 0 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 10 }}
-                  >
-                    <IoMdHeartEmpty className="text-xl align-middle text-black hover:text-egreen-800 transition-all" />
-                  </motion.div>
-                )}
               </motion.div>
             </div>
           </div>
